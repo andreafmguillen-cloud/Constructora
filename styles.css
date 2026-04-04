@@ -28,6 +28,8 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  /* Anchor jumps clear the sticky/fixed header on all breakpoints */
+  scroll-padding-top: calc(env(safe-area-inset-top, 0px) + var(--header-h) + 8px);
 }
 
 /* iOS / notched devices: respect safe areas sitewide */
@@ -108,6 +110,24 @@ body {
   background: rgba(250, 248, 245, 0.96);
   border-bottom: 1px solid var(--border);
   padding-top: env(safe-area-inset-top, 0px);
+}
+
+/*
+ * Sticky breaks on many mobile browsers when html/body use overflow-x: hidden.
+ * Fixed bar keeps logo + menu always visible while scrolling.
+ */
+@media (max-width: 960px) {
+  .site-header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 300;
+  }
+
+  main#main {
+    padding-top: calc(env(safe-area-inset-top, 0px) + var(--header-h));
+  }
 }
 
 @media (min-width: 961px) {
