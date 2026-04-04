@@ -27,7 +27,7 @@
   });
 
   window.addEventListener("resize", function () {
-    if (window.matchMedia("(min-width: 721px)").matches) {
+    if (window.matchMedia("(min-width: 961px)").matches) {
       setOpen(false);
     }
   });

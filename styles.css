@@ -103,11 +103,19 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(250, 248, 245, 0.82);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* Solid header on narrow viewports so fixed .nav-list isn’t trapped inside a
+     backdrop-filter containing block (Safari/iOS: menu would get ~0 height). */
+  background: rgba(250, 248, 245, 0.96);
   border-bottom: 1px solid var(--border);
   padding-top: env(safe-area-inset-top, 0px);
+}
+
+@media (min-width: 961px) {
+  .site-header {
+    background: rgba(250, 248, 245, 0.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
 }
 
 .header-inner {
