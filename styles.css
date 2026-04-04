@@ -100,36 +100,26 @@ body {
   margin-inline: auto;
 }
 
-/* Header */
+/* Header — always fixed: sticky fails when html/body use overflow-x: hidden (PC + mobile). */
 .site-header {
-  position: sticky;
+  position: fixed;
+  left: 0;
+  right: 0;
   top: 0;
-  z-index: 100;
-  /* Solid header on narrow viewports so fixed .nav-list isn’t trapped inside a
-     backdrop-filter containing block (Safari/iOS: menu would get ~0 height). */
+  z-index: 300;
   background: rgba(250, 248, 245, 0.96);
   border-bottom: 1px solid var(--border);
   padding-top: env(safe-area-inset-top, 0px);
 }
 
-/*
- * Sticky breaks on many mobile browsers when html/body use overflow-x: hidden.
- * Fixed bar keeps logo + menu always visible while scrolling.
- */
-@media (max-width: 960px) {
-  .site-header {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 300;
-  }
-
-  main#main {
-    padding-top: calc(env(safe-area-inset-top, 0px) + var(--header-h));
-  }
+main#main {
+  padding-top: calc(env(safe-area-inset-top, 0px) + var(--header-h));
 }
 
+/*
+ * backdrop-filter only on wide layouts: on narrow screens it traps position:fixed
+ * .nav-list (mobile drawer) inside a tiny containing block (Safari/iOS).
+ */
 @media (min-width: 961px) {
   .site-header {
     background: rgba(250, 248, 245, 0.82);
