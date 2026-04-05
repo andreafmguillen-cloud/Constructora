@@ -1,4 +1,4 @@
-/* Horizon Build Co. — premium landing */
+/* Bravex Trade Services LLC — landing */
 :root {
   --bg: #faf8f5;
   --bg-elevated: #ffffff;
@@ -177,30 +177,18 @@ html.nav-drawer-open {
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  flex-shrink: 0;
   text-decoration: none;
   color: var(--ink);
 }
 
-.logo-mark {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--accent) 0%, #2d2a26 100%);
-  box-shadow: var(--shadow-sm);
-}
-
-.logo-text {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-}
-
-.logo-accent {
-  color: var(--accent);
-  font-style: italic;
-  margin-left: 2px;
+.logo-img {
+  display: block;
+  height: 48px;
+  width: auto;
+  max-width: min(220px, 52vw);
+  object-fit: contain;
+  object-position: left center;
 }
 
 .nav-list {
@@ -1027,13 +1015,9 @@ html.nav-drawer-open {
     padding-block: 8px;
   }
 
-  .logo-text {
-    font-size: 1.2rem;
-  }
-
-  .logo-mark {
-    width: 32px;
-    height: 32px;
+  .logo-img {
+    height: 40px;
+    max-width: min(200px, 48vw);
   }
 
   .hero {
